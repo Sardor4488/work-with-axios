@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logotip.jpg";
+import AppCss from "./AppCss";
+import { Link, Route, Switch } from "react-router-dom";
+import Books from "./pages/books";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppCss>
+      <div className=" ">
+        <div className="container_Fluid d-flex  w-100">
+          <div className="sidebar shadow ">
+            <h4 className="p-3">Logotip </h4>
+            <div>
+              <Link to="/books">books</Link>
+            </div>
+          </div>
+          <div className="content">
+            <header className="w-100 bg-white py-3 shadow">
+              <div className="container d-flex justify-content-between align-items-center w-100">
+                <img className="logotip" src={logo} alt="" />
+                <div>
+                  <input type="text" className="input" />
+                  <button>Submit</button>
+                </div>
+              </div>
+            </header>
+            <div className="p-3">
+              <h1>content</h1>
+              <Switch>
+                <Route path="/books">
+                  <Books></Books>
+                </Route>
+              </Switch>
+            </div>
+          </div>
+        </div>
+      </div>
+    </AppCss>
   );
 }
 
